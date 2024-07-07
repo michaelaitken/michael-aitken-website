@@ -1,28 +1,6 @@
 {
   "hosting": {
     "public": "public",
-    "redirects": [
-      {
-        "source": "/",
-        "destination": "https://www.michaelaitken.com",
-        "type": 301
-      },
-      {
-        "source": "/michaelaitken.com/**",
-        "destination": "https://www.michaelaitken.com",
-        "type": 301
-      },
-      {
-        "source": "/mikeaitken.com/**",
-        "destination": "https://www.michaelaitken.com",
-        "type": 301
-      },
-      {
-        "source": "/www.mikeaitken.com/**",
-        "destination": "https://www.michaelaitken.com",
-        "type": 301
-      }
-    ],
     "ignore": [
       "firebase.json",
       "**/.*",
