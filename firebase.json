@@ -4,22 +4,22 @@
     "redirects": [
       {
         "source": "/",
-        "destination": "https://www.example.com",
+        "destination": "https://www.michaelaitken.com",
         "type": 301
       },
       {
-        "source": "/example.com/**",
-        "destination": "https://www.example.com",
+        "source": "/michaelaitken.com/**",
+        "destination": "https://www.michaelaitken.com",
         "type": 301
       },
       {
-        "source": "/example2.com/**",
-        "destination": "https://www.example.com",
+        "source": "/mikeaitken.com/**",
+        "destination": "https://www.michaelaitken.com",
         "type": 301
       },
       {
-        "source": "/www.example2.com/**",
-        "destination": "https://www.example.com",
+        "source": "/www.mikeaitken.com/**",
+        "destination": "https://www.michaelaitken.com",
         "type": 301
       }
     ],
