@@ -1,0 +1,219 @@
+/* Import Google Font: Open Sans */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* Root variable definitions for easy theme management */
+:root {
+    --text-color: #C9D2E2;
+    --link-color: #96BAFF;
+    --link-color-hover: #4886FF;
+    --footer-color: #1F2741;
+    --website-max-width: 60rem;
+    --dot-bg: #020612;
+    --dot-color: #0a1024;
+    --dot-size: 2px;
+    --dot-space: 20px;
+}
+
+/* Base HTML styles */
+html {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--text-color);
+}
+
+/* Body and layout design */
+body {
+    background:
+        linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+        linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+        var(--dot-color);
+    margin: 1rem auto;
+    max-width: var(--website-max-width);
+    padding: 0 1rem;
+}
+
+/* Header layout */
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Change flex direction for mobile devices */
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+    }
+}
+
+header h1 {
+    font-weight: 400;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+}
+
+/* Navigation links */
+nav a{
+    font-size: 1.1rem;
+    margin: 0 0.5rem;
+}
+
+/* Link styles */
+a {
+    text-decoration: none;
+    position: relative;
+    color: var(--link-color);
+}
+
+a:hover {
+    color: var(--link-color-hover);
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--link-color-hover);
+    transition: width 0.3s ease-out;
+}
+
+a:hover::after {
+    width: 100%;
+}
+
+/* Article styles */
+article {
+    margin: 0 auto;
+    max-width: calc(var(--website-max-width) * 0.8);
+}
+
+article em {
+    font-style: italic;
+    color: #425187;
+}
+
+/* Text styles */
+p em {
+    font-style: italic;
+    color: var(--text-color)
+}
+
+sup {
+    vertical-align: top;
+}
+
+hr {
+    height: 2px;
+    border: none;
+    background-color: #0F1528;
+    margin: 20px 0;
+}
+
+footer {
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--footer-color);
+}
+
+pre {
+    padding: 1rem 1.5rem;
+    margin: 0 1rem;
+    background-color: #01030A;
+    overflow-x: auto;
+    white-space: pre;
+    text-wrap: nowrap;
+}
+
+code {
+    color: #A5ADBA;
+}
+
+ul {
+    list-style-type: square;
+}
+
+li::marker {
+    color: #425187;
+}
+
+blockquote {
+    font-style: italic;
+    position: relative;
+    padding-left: 40px;
+    margin-left: 0;
+    border-left: 2px solid #0F1528 ;
+}
+
+blockquote::before {
+    font-family: Arial, Helvetica, sans-serif;
+    content: "\201C";
+    color:#425187;
+    font-size:3em;
+    position: absolute;
+    left: 10px;
+    top:-10px;
+}
+
+blockquote::after {
+    content: '';
+}
+
+mark {
+    background-color: #96BAFF;
+    color: #0a1024;
+}
+
+/* Customizes the whole scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background-color: #020612;
+}
+
+/* Customizes the draggable part of the scrollbar */
+::-webkit-scrollbar-thumb {
+    background-color: #0F1528;
+    border-radius: 10px;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+}
+
+/* Changes the scrollbar thumb when hovering */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #2A2F41;
+    border: 2px solid transparent;
+}
+
+/* Customizes the scrollbar track (part the thumb slides within) */
+::-webkit-scrollbar-track {
+    background-color: #020612;
+    border-radius: 10px;
+}
+
+/* Change the text highlight color */
+::selection {
+    background: #96BAFF;
+    color: #0a1024;
+}
+
+/* For webkit-based browsers */
+::-webkit-selection {
+    background: #96BAFF;
+    color: #0a1024;
+}
+
+/* Fallbacks for font-optical-sizing and font-variation-settings */
+html {
+    -moz-font-feature-settings: 'optical-sizing' 'auto';
+    -webkit-font-feature-settings: 'optical-sizing' 'auto';
+    font-feature-settings: 'optical-sizing' 'auto';
+    -moz-font-variation-settings: 'wdth' 100;
+    -webkit-font-variation-settings: 'wdth' 100;
+    font-variation-settings: 'wdth' 100;
+    font-style: normal;
+}
