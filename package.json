@@ -1,0 +1,30 @@
+{
+  "name": "michael-aitken-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal portfolio website for Michael Aitken",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve --port=8080",
+
+    "clean": "rm -rf public",
+    "rebuild": "npm run clean --silent && npm run build --silent",
+
+    "host": "firebase emulators:start --only hosting",
+    "rehost": "npm run rebuild --silent && npm run host --silent"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelaitken/michael-aitken-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michaelaitken/michael-aitken-website/issues"
+  },
+  "homepage": "https://github.com/michaelaitken/michael-aitken-website#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  }
+}

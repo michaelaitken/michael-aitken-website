@@ -1,0 +1,23 @@
+<div class="timeline-item {% if item.type == 'current' %}timeline-current{% endif %}">
+  <div class="timeline-marker"></div>
+  <div class="timeline-content">
+    <div class="timeline-header">
+      <h3>{{ item.title }}</h3>
+      <span class="timeline-period">{{ item.period }}</span>
+    </div>
+    <p class="timeline-company">{{ item.company }} · {{ item.location }}</p>
+    
+    {% if item.achievement %}
+    <div class="timeline-achievement">
+      <span class="achievement-icon">★</span>
+      {{ item.achievement }}
+    </div>
+    {% endif %}
+    
+    <ul class="timeline-highlights">
+      {% for highlight in item.highlights %}
+      <li>{{ highlight }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

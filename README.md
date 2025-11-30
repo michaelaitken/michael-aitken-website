@@ -1,20 +1,16 @@
-# michael-aitken-website
 
-Welcome to the repository for my personal website. I am Michael Aitken, a Computer Science student at Deakin University, minoring in embedded systems. This website serves as a platform to showcase my work, including projects, technical interests, and other relevant information.
+# Personal Portfolio Website (WIP)
 
-**Please note: This website is a work in progress. I am continuously adding and updating content and features.**
+[![Deploy to Firebase Hosting  merge](https://github.com/michaelaitken/michael-aitken-website/actions/workflows/firebase-hosting-merge.yml/badge.svg)](https://github.com/michaelaitken/michael-aitken-website/actions/workflows/firebase-hosting-merge.yml)
 
-## About Me
+## Overview
 
-I am a dedicated and curious computer science student with a strong interest in high-performance computing, low-latency systems, and real-time software development. I have a growing proficiency in modern C++ and continue to expand my knowledge in the field. My academic focus includes embedded systems, and I am always exploring new technologies and projects.
+This repository contains the source code for my personal portfolio website.
 
-## Website Features
+## Live Site
 
-This website is currently a **work in progress** and will primarily serve as a digital resume, featuring:
-
-- **Work Experience**: An overview of my professional experience.
-- **Personal Projects**: Highlights of my major personal projects.
-- **Contact Information**: Ways to connect for inquiries or collaborations. 
+- **Production URL:** [`https://www.michaelaitken.com`](https://www.michaelaitken.com)
+- **Hosting:** Firebase Hosting
 
 ## Contact
 
@@ -23,3 +19,23 @@ Feel free to reach out for any inquiries or collaborations:
 - **Email**: [hello@michaelaitken.com](mailto:hello@michaelaitken.com)
 - **LinkedIn**: [Michael Aitken](https://www.linkedin.com/in/maitken)
 - **GitHub**: [michaelaitken](https://github.com/michaelaitken)
+
+Using Eleventy
+
+```bash
+npm init -y
+npm install --save-dev @11ty/eleventy 
+```
+
+## Quick Polish Checklist
+
+Before deploying:
+
+- Replace all placeholder text in site.json
+- Create og-image.png (1200×630px) for social sharing
+- Create favicon files (favicon.ico, apple-touch-icon.png, icon-192.png, icon-512.png)
+- Test with Lighthouse (aim for 90+ on all metrics)
+- Test with a screen reader (VoiceOver/NVDA)
+- Validate HTML at validator.w3.org
+- Check color contrast at webaim.org/resources/contrastchecker
+- Test on mobile devices

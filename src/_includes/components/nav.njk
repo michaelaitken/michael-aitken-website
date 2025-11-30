@@ -1,0 +1,17 @@
+<nav class="nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="{{ site.title }} - Home">
+      <span class="logo-bracket" aria-hidden="true">{</span>
+      <span class="logo-text">{{ site.title | lower | replace(" ", "_") }}</span>
+      <span class="logo-bracket" aria-hidden="true">}</span>
+    </a>
+    
+    <ul class="nav-links" role="list">
+      <li><a href="/" {% if page.url == "/" %}aria-current="page"{% endif %}>Home</a></li>
+      <li><a href="/resume/" {% if page.url == "/resume/" %}aria-current="page"{% endif %}>Resume</a></li>
+      <li><a href="/project/" {% if "/project" in page.url %}aria-current="page"{% endif %}>Project</a></li>
+      <li><a href="/posts/" {% if "/posts" in page.url %}aria-current="page"{% endif %}>Writing</a></li>
+      <li><a href="/contact/" {% if page.url == "/contact/" %}aria-current="page"{% endif %}>Contact</a></li>
+    </ul>
+  </div>
+</nav>

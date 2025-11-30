@@ -1,0 +1,24 @@
+---
+layout: layouts/base.njk
+---
+
+<article class="post">
+  <header class="post-header">
+    <a href="/project/" class="back-link">← Back to Venturi</a>
+    <h1>{{ title }}</h1>
+    <div class="post-meta">
+      <time datetime="{{ date }}">{{ date | date }}</time>
+      {% if tags %}
+      <div class="post-tags">
+        {% for tag in tags %}
+        <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </header>
+  
+  <div class="post-content prose">
+    {{ content | safe }}
+  </div>
+</article>

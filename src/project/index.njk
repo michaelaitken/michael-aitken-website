@@ -1,0 +1,101 @@
+---
+layout: layouts/base.njk
+title: Venturi
+subtitle: Modern C++ Media Streaming Server
+---
+
+<section class="project-hero">
+  <div class="project-status">
+    <span class="status-badge">Active Development</span>
+    <a href="{{ site.github }}/venturi" target="_blank" rel="noopener" class="github-link">
+      View on GitHub →
+    </a>
+  </div>
+  
+  <div class="project-overview">
+    <p class="lead">
+      Venturi is a media streaming server built from the ground up in modern C++. 
+      Named after the Venturi effect—where fluid speeds up through a constriction—it's 
+      designed to efficiently channel media data to clients.
+    </p>
+  </div>
+</section>
+
+<section class="project-section">
+  <h2>Technical Overview</h2>
+  
+  <div class="tech-details">
+    <div class="tech-card">
+      <h3>Architecture</h3>
+      <ul>
+        <li>Built on <strong>Boost.Beast</strong> for HTTP handling</li>
+        <li><strong>Boost.Asio</strong> for asynchronous I/O</li>
+        <li>Modern C++20 features throughout</li>
+        <li>Single-threaded event loop (scalable design planned)</li>
+      </ul>
+    </div>
+    
+    <div class="tech-card">
+      <h3>Current Features</h3>
+      <ul>
+        <li>HTTP/1.1 byte-range request support</li>
+        <li>Efficient MP4 file serving</li>
+        <li>Seekable video streaming</li>
+        <li>Proper MIME type handling</li>
+      </ul>
+    </div>
+    
+    <div class="tech-card">
+      <h3>Planned Features</h3>
+      <ul>
+        <li>HLS/DASH adaptive streaming</li>
+        <li>Multi-threaded request handling</li>
+        <li>Caching layer</li>
+        <li>Metrics and monitoring</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="project-section">
+  <h2>Why This Project?</h2>
+  
+  <div class="prose">
+    <p>
+      Media streaming sits at a fascinating intersection of systems programming 
+      and real-world user experience. Every millisecond of latency matters. 
+      Every byte of bandwidth costs money. The constraints force elegant solutions.
+    </p>
+    <p>
+      Building Venturi lets me explore:
+    </p>
+    <ul>
+      <li><strong>Network programming</strong> — TCP, HTTP, connection management</li>
+      <li><strong>Performance optimization</strong> — Zero-copy I/O, memory management</li>
+      <li><strong>Media formats</strong> — Container formats, codecs, streaming protocols</li>
+      <li><strong>Systems design</strong> — Scalability, reliability, observability</li>
+    </ul>
+  </div>
+</section>
+
+<section class="project-section">
+  <h2>Documentation</h2>
+  <p class="section-intro">
+    Deep dives into the concepts and implementation details behind Venturi.
+  </p>
+  
+  <div class="posts-grid">
+    {% for post in collections.posts %}
+    <a href="{{ post.url }}" class="post-card">
+      <div class="post-card-content">
+        <h3>{{ post.data.title }}</h3>
+        <p>{{ post.data.excerpt }}</p>
+        <div class="post-card-meta">
+          <time>{{ post.data.date | date }}</time>
+          <span class="read-more">Read →</span>
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>

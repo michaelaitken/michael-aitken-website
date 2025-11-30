@@ -1,0 +1,95 @@
+---
+layout: layouts/base.njk
+---
+
+<section class="hero">
+  <div class="hero-content">
+    <p class="hero-greeting">Hello, I'm</p>
+    <h1 class="hero-name">{{ site.title }}</h1>
+    <p class="hero-title">{{ site.description }}</p>
+    <p class="hero-tagline">{{ site.tagline }}</p>
+    
+    <div class="hero-focus">
+      <span class="focus-label">Focus Areas</span>
+      <div class="focus-tags">
+        <span>Modern C++</span>
+        <span>Backend Systems</span>
+        <span>Performance</span>
+        <span>Media & Streaming</span>
+      </div>
+    </div>
+    
+    <div class="hero-cta">
+      <a href="/resume/" class="btn btn-primary">View Resume</a>
+      <a href="/project/" class="btn btn-secondary">See My Work</a>
+    </div>
+  </div>
+  
+  <div class="hero-aside">
+    <div class="status-card">
+      <div class="status-indicator"></div>
+      <span>Open to opportunities</span>
+    </div>
+    <p class="status-detail">Targeting backend & systems roles</p>
+    <p class="status-location">{{ site.location }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title">Background</h2>
+  <div class="about-grid">
+    <div class="about-text prose">
+      <p>
+        I'm a systems-minded engineer pivoting from manufacturing into backend 
+        and systems software development. My journey has been unconventional—from 
+        12-hour rotating shifts on the factory floor to designing SCADA infrastructure 
+        and building media streaming servers in modern C++.
+      </p>
+      <p>
+        I completed my Computer Science degree with distinction (minor in Embedded Systems) 
+        at Deakin University while working full-time. This experience taught me discipline, 
+        time management, and how to deliver under pressure.
+      </p>
+      <p>
+        My passion lies at the intersection of <strong>systems programming</strong>, 
+        <strong>performance optimization</strong>, and <strong>media technology</strong>. 
+        I'm fascinated by how bytes flow through systems—whether that's industrial 
+        control data or video streams.
+      </p>
+    </div>
+    
+    <div class="about-stats">
+      <div class="stat">
+        <span class="stat-value">~3</span>
+        <span class="stat-label">Years Systems Engineering</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">C++20</span>
+        <span class="stat-label">Primary Language Focus</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">2025</span>
+        <span class="stat-label">CS Degree Completed</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title">Featured Project</h2>
+  <div class="featured-project">
+    <div class="project-badge">In Development</div>
+    <h3 class="project-name">Venturi</h3>
+    <p class="project-desc">
+      A modern C++ media streaming server built with Boost.Beast, implementing 
+      HTTP byte-range requests for efficient video delivery and seeking.
+    </p>
+    <div class="project-tech">
+      <span>C++20</span>
+      <span>Boost.Beast</span>
+      <span>Boost.Asio</span>
+      <span>HTTP/1.1</span>
+    </div>
+    <a href="/project/" class="btn btn-secondary">Learn More →</a>
+  </div>
+</section>

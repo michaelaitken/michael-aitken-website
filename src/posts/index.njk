@@ -1,0 +1,38 @@
+---
+layout: layouts/base.njk
+title: Writing
+subtitle: Technical documentation and explorations
+---
+
+<section class="posts-index">
+  <header class="page-header">
+    <h1>{{ title }}</h1>
+    <p class="subtitle">{{ subtitle }}</p>
+  </header>
+
+  <div class="posts-list">
+    {% for post in collections.posts %}
+    <a href="{{ post.url }}" class="post-list-item">
+      <div class="post-list-content">
+        <h2>{{ post.data.title }}</h2>
+        <p>{{ post.data.excerpt }}</p>
+        <div class="post-list-meta">
+          <time datetime="{{ post.data.date }}">{{ post.data.date | date }}</time>
+          {% if post.data.tags %}
+          <div class="post-list-tags">
+            {% for tag in post.data.tags %}
+              {% if tag != "posts" %}
+              <span class="tag">{{ tag }}</span>
+              {% endif %}
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      <span class="post-list-arrow">→</span>
+    </a>
+    {% else %}
+    <p class="no-posts">No posts yet. Check back soon.</p>
+    {% endfor %}
+  </div>
+</section>
