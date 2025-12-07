@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ title or "Coming Soon" }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="{{ description or 'Michael Aitken | Coming Late Dec 2026.' }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/_css/style.css">
+  <link rel="icon" href="/_assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <main class="page">
+    <section class="page-content">
+      {{ content | safe }}
+    </section>
+  </main>
+</body>
+</html>
