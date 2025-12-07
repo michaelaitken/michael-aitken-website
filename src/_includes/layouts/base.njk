@@ -1,96 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- Primary Meta Tags -->
-  <title>{{ title }}{% if title %} | {% endif %}{{ site.title }}</title>
-  <meta name="title" content="{{ title }}{% if title %} | {% endif %}{{ site.title }}">
-  <meta name="description" content="{{ description or excerpt or site.description }}">
-  <meta name="author" content="{{ site.title }}">
-  
-  <!-- Canonical URL -->
-  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
-  
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="{% if layout == 'layouts/post.njk' %}article{% else %}website{% endif %}">
-  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-  <meta property="og:title" content="{{ title }}{% if title %} | {% endif %}{{ site.title }}">
-  <meta property="og:description" content="{{ description or excerpt or site.description }}">
-  <meta property="og:image" content="{{ site.url }}/assets/og-image.png">
-  <meta property="og:locale" content="en_AU">
-  
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
-  <meta name="twitter:title" content="{{ title }}{% if title %} | {% endif %}{{ site.title }}">
-  <meta name="twitter:description" content="{{ description or excerpt or site.description }}">
-  <meta name="twitter:image" content="{{ site.url }}/assets/og-image.png">
-  
-  <!-- Article specific (for blog posts) -->
-  {% if layout == 'layouts/post.njk' %}
-  <meta property="article:published_time" content="{{ date | isoDate }}">
-  <meta property="article:author" content="{{ site.title }}">
-  {% for tag in tags %}
-  {% if tag != 'posts' %}
-  <meta property="article:tag" content="{{ tag }}">
-  {% endif %}
-  {% endfor %}
-  {% endif %}
-  
-  <!-- Favicon -->
-  <link rel="icon" href="/_assets/favicon.ico" sizes="32x32">
-  <link rel="icon" href="/_assets/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/_assets/apple-touch-icon.png">
-  
-  <!-- Web App Manifest -->
-  <link rel="manifest" href="/manifest.json">
-  <meta name="theme-color" content="#0a0a0a">
-  
-  <!-- Preconnect to external domains -->
+  <meta charset="UTF-8" />
+  <title>{{ title or "Coming Soon" }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="{{ description or 'Michael Aitken | Coming Late Dec 2026.' }}" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
-  <!-- Fonts with display swap for performance -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  
-  <!-- Stylesheet -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/_css/style.css">
-  
-  <!-- RSS Feed -->
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.url }}/feed.xml">
+  <link rel="icon" href="/_assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
-  <!-- Skip Link for Accessibility -->
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-  
-  {% include "components/nav.njk" %}
-  
-  <main id="main-content" tabindex="-1">
-    {{ content | safe }}
+  <main class="page">
+    <section class="page-content">
+      {{ content | safe }}
+    </section>
   </main>
-
-  {% include "components/footer.njk" %}
-  
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "{% if layout == 'layouts/post.njk' %}Article{% else %}WebSite{% endif %}",
-    "name": "{{ title or site.title }}",
-    "description": "{{ description or excerpt or site.description }}",
-    "url": "{{ site.url }}{{ page.url }}",
-    "author": {
-      "@type": "Person",
-      "name": "{{ site.title }}",
-      "url": "{{ site.url }}"
-    }
-    {% if layout == 'layouts/post.njk' %},
-    "datePublished": "{{ date | isoDate }}",
-    "headline": "{{ title }}"
-    {% endif %}
-  }
-  </script>
 </body>
 </html>
