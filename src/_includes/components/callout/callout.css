@@ -1,0 +1,59 @@
+/* =========================================
+   CALLOUT BLOCKS
+   ========================================= */
+.callout {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  border-left: 4px solid;
+  background: var(--code-bg);
+}
+
+.callout p {
+  margin: 0;
+}
+
+.callout-title {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+/* Note - Blue/Sage */
+.callout-note {
+  border-color: var(--accent-color);
+}
+
+.callout-note .callout-title {
+  color: var(--accent-color);
+}
+
+/* Tip - Green */
+.callout-tip {
+  border-color: #6b9b7a;
+}
+
+.callout-tip .callout-title {
+  color: #6b9b7a;
+}
+
+/* Warning - Amber */
+.callout-warning {
+  border-color: #c9a227;
+}
+
+.callout-warning .callout-title {
+  color: #c9a227;
+}
+
+/* Info - Blue */
+.callout-info {
+  border-color: #6b8cad;
+}
+
+.callout-info .callout-title {
+  color: #6b8cad;
+}

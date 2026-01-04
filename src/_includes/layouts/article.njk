@@ -1,0 +1,27 @@
+---
+layout: layouts/base.njk
+hasSidebars: true
+showBreadcrumbs: true
+---
+
+<article class="article" data-pagefind-body>
+  <header class="article-header">
+    <h1>{{ title }}</h1>
+    {% if date %}
+      <p class="article-meta">
+        <time datetime="{{ date | isoDate }}">{{ date | formatDate }}</time>
+        {% if tags %}
+          <span class="article-tags">
+            {% for tag in tags %}
+              <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </span>
+        {% endif %}
+      </p>
+    {% endif %}
+  </header>
+  
+  <div class="article-content">
+    {{ content | safe }}
+  </div>
+</article>

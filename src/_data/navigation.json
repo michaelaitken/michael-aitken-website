@@ -1,0 +1,12 @@
+{
+  "main": [
+    { "label": "Home", "url": "/" },
+    { "label": "Career", "url": "/career/" },
+    { "label": "Knowledge", "url": "/knowledge/" },
+    { "label": "About", "url": "/about/" }
+  ],
+  "about": [
+    { "label": "About Me", "url": "/about/" },
+    { "label": "Contact", "url": "/about/#contact" }
+  ]
+}

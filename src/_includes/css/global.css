@@ -1,0 +1,604 @@
+/* =========================================
+   1. THEME VARIABLES (Warm Light & Warm Dark)
+   ========================================= */
+:root {
+  /* Global Settings */
+  --font-serif: "Source Serif 4", "EB Garamond", serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  --font-mono: "SF Mono", "Menlo", "Monaco", "Consolas", monospace;
+  --spacing-unit: 2rem;
+  --container-width: 720px;
+
+  /* Light Theme */
+  --light-bg: #faf9f6;
+  --light-text: #404040;
+  --light-heading: #222222;
+  --light-meta: #737373;
+  --light-accent: #a15c45;
+  --light-border: #dcdcdc;
+  --light-code-bg: #efefec;
+  --light-link-line: #d0d0d0;
+
+  /* Dark Theme */
+  --dark-bg: #1f1e1d;
+  --dark-text: #d4d4d4;
+  --dark-heading: #f0f0f0;
+  --dark-meta: #8a8a8a;
+  --dark-accent: #ba765f;
+  --dark-border: #333333;
+  --dark-code-bg: #2b2a29;
+  --dark-link-line: #444444;
+
+  /* Default to Light */
+  --bg-color: var(--light-bg);
+  --text-color: var(--light-text);
+  --text-heading: var(--light-heading);
+  --text-meta: var(--light-meta);
+  --accent-color: var(--light-accent);
+  --border-color: var(--light-border);
+  --code-bg: var(--light-code-bg);
+  --link-decoration: var(--light-link-line);
+}
+
+/* System Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: var(--dark-bg);
+    --text-color: var(--dark-text);
+    --text-heading: var(--dark-heading);
+    --text-meta: var(--dark-meta);
+    --accent-color: var(--dark-accent);
+    --border-color: var(--dark-border);
+    --code-bg: var(--dark-code-bg);
+    --link-decoration: var(--dark-link-line);
+  }
+}
+
+/* Manual Overrides */
+[data-theme="light"] {
+  --bg-color: var(--light-bg);
+  --text-color: var(--light-text);
+  --text-heading: var(--light-heading);
+  --text-meta: var(--light-meta);
+  --accent-color: var(--light-accent);
+  --border-color: var(--light-border);
+  --code-bg: var(--light-code-bg);
+  --link-decoration: var(--light-link-line);
+}
+
+[data-theme="dark"] {
+  --bg-color: var(--dark-bg);
+  --text-color: var(--dark-text);
+  --text-heading: var(--dark-heading);
+  --text-meta: var(--dark-meta);
+  --accent-color: var(--dark-accent);
+  --border-color: var(--dark-border);
+  --code-bg: var(--dark-code-bg);
+  --link-decoration: var(--dark-link-line);
+}
+
+/* =========================================
+   2. BASE RESET & STYLES
+   ========================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* =========================================
+   3. LAYOUT
+   ========================================= */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: calc(100vh - 60px);
+}
+
+.layout[data-has-sidebars="true"] {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1100px) {
+  .layout[data-has-sidebars="true"] {
+    grid-template-columns: 280px 1fr 220px;
+    gap: 0;
+  }
+}
+
+main {
+  max-width: var(--container-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+@media (min-width: 1100px) {
+  .layout[data-has-sidebars="true"] main {
+    max-width: none;
+    padding: 2rem 3rem 4rem;
+  }
+}
+
+/* =========================================
+   4. TYPOGRAPHY
+   ========================================= */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* font-family: var(--font-serif); */
+  color: var(--text-heading);
+  font-weight: 500;
+  line-height: 1.3;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-meta);
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: var(--spacing-unit);
+}
+
+strong {
+  font-weight: 600;
+  color: var(--text-heading);
+}
+
+/* =========================================
+   5. LINKS
+   ========================================= */
+a {
+  color: var(--text-heading);
+  text-decoration: none;
+  border-bottom: 1px solid var(--link-decoration);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+a:hover {
+  border-bottom-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+/* =========================================
+   6. LISTS
+   ========================================= */
+ul,
+ol {
+  padding-left: 1.5rem;
+  margin-bottom: var(--spacing-unit);
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+li::marker {
+  color: var(--text-meta);
+}
+
+/* =========================================
+   7. CODE
+   ========================================= */
+code {
+  background-color: var(--code-bg);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  color: var(--text-heading);
+}
+
+pre {
+  background-color: var(--code-bg);
+  color: var(--text-color);
+  padding: 1.25rem;
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  margin-bottom: var(--spacing-unit);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* =========================================
+   8. BLOCKQUOTES
+   ========================================= */
+blockquote {
+  margin: var(--spacing-unit) 0;
+  padding-left: 1.5rem;
+  border-left: 3px solid var(--accent-color);
+  color: var(--text-meta);
+  font-style: italic;
+}
+
+blockquote p {
+  margin-bottom: 0;
+}
+
+/* =========================================
+   9. TABLES
+   ========================================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--spacing-unit);
+  font-size: 0.9rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  color: var(--text-meta);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* =========================================
+   10. HORIZONTAL RULE
+   ========================================= */
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--border-color);
+  margin: 3rem auto;
+  width: 60%;
+}
+
+/* =========================================
+   11. IMAGES
+   ========================================= */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  display: block;
+  margin: 1.5rem 0;
+}
+
+/* =========================================
+   12. ARTICLE STYLES
+   ========================================= */
+.article-header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.article-header h1 {
+  margin-bottom: 0.75rem;
+}
+
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  color: var(--text-meta);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.article-tags {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tag {
+  background: var(--code-bg);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: var(--text-meta);
+}
+
+/* =========================================
+   13. PAGE STYLES
+   ========================================= */
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  margin-bottom: 0;
+}
+
+/* =========================================
+   14. HOME PAGE
+   ========================================= */
+.home {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .home {
+    padding: 8rem 1.5rem;
+  }
+}
+
+.home h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.home .lead {
+  font-size: 1.15rem;
+  color: var(--text-meta);
+  margin-bottom: 3rem;
+}
+
+.home-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+@media (min-width: 480px) {
+  .home-links {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-heading);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.home-link:hover {
+  border-color: var(--accent-color);
+  background: var(--code-bg);
+}
+
+.home-link.primary {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--light-bg);
+}
+
+.home-link.primary:hover {
+  filter: brightness(1.1);
+}
+
+/* =========================================
+   15. CAREER PAGE
+   ========================================= */
+.career-page {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.career-header {
+  margin-bottom: 3rem;
+}
+
+.career-header h1 {
+  margin-bottom: 1rem;
+}
+
+.career-summary {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.career-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--accent-color);
+  color: var(--light-bg);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1);
+  color: var(--light-bg);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-heading);
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent-color);
+  background: var(--code-bg);
+}
+
+/* =========================================
+   16. KNOWLEDGE BASE INDEX
+   ========================================= */
+.knowledge-index {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.topic-card {
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.topic-card:hover {
+  border-color: var(--accent-color);
+  background: var(--code-bg);
+}
+
+.topic-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.topic-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-meta);
+}
+
+.topic-card a {
+  border: none;
+}
+
+.topic-card a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.topic-card {
+  position: relative;
+}
+
+/* =========================================
+   17. HEADER ANCHORS
+   ========================================= */
+.header-anchor {
+  margin-left: 0.5rem;
+  color: var(--text-meta);
+  opacity: 0;
+  border: none;
+  font-weight: 400;
+  transition: opacity 0.2s ease;
+}
+
+h2:hover .header-anchor,
+h3:hover .header-anchor,
+h4:hover .header-anchor {
+  opacity: 1;
+}
+
+.header-anchor:hover {
+  color: var(--accent-color);
+}
+
+/* =========================================
+   18. UTILITIES
+   ========================================= */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.text-meta {
+  color: var(--text-meta);
+}
+
+.text-small {
+  font-size: 0.875rem;
+}
+
+/* =========================================
+   19. PAGEFIND OVERRIDES
+   ========================================= */
+.pagefind-ui {
+  --pagefind-ui-scale: 0.9;
+  --pagefind-ui-primary: var(--accent-color);
+  --pagefind-ui-text: var(--text-color);
+  --pagefind-ui-background: var(--bg-color);
+  --pagefind-ui-border: var(--border-color);
+  --pagefind-ui-tag: var(--code-bg);
+  --pagefind-ui-border-width: 1px;
+  --pagefind-ui-border-radius: 8px;
+  --pagefind-ui-font: var(--font-sans);
+}

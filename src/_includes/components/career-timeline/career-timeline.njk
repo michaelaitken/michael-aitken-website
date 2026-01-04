@@ -1,0 +1,87 @@
+<section class="career-section">
+  <h2>Experience</h2>
+  <div class="timeline">
+    {% for job in career.experience %}
+      <div class="timeline-company">
+        <div class="timeline-company-header">
+          {% if job.logo %}
+            <img src="{{ job.logo }}" alt="{{ job.company }} logo" class="company-logo">
+          {% else %}
+            <div class="company-logo company-logo-placeholder">
+              {{ job.company | slice(0, 2) | string | upper }}
+            </div>
+          {% endif %}
+          <h3 class="company-name">{{ job.company }}</h3>
+        </div>
+        
+        <div class="timeline-roles">
+          {% for role in job.roles %}
+            <div class="timeline-role">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <div class="role-header">
+                  <h4 class="role-title">{{ role.title }}</h4>
+                  <span class="role-type">{{ role.type }}</span>
+                </div>
+                <p class="role-dates">
+                  {{ role.startDate | formatDate }} – 
+                  {% if role.endDate %}{{ role.endDate | formatDate }}{% else %}Present{% endif %}
+                </p>
+                <p class="role-description">{{ role.description }}</p>
+                {% if role.highlights %}
+                  <ul class="role-highlights">
+                    {% for highlight in role.highlights %}
+                      <li>{{ highlight }}</li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="career-section">
+  <h2>Education</h2>
+  <div class="education-list">
+    {% for edu in career.education %}
+      <div class="education-item">
+        <h3>{{ edu.degree }} in {{ edu.field }}</h3>
+        <p class="education-meta">{{ edu.institution }} · {{ edu.startDate }} – {{ edu.endDate }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="career-section">
+  <h2>Skills</h2>
+  <div class="skills-grid">
+    {% for group in career.skills %}
+      <div class="skill-group">
+        <h4>{{ group.category }}</h4>
+        <div class="skill-tags">
+          {% for skill in group.items %}
+            <span class="skill-tag">{{ skill }}</span>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% if career.certifications.length > 0 %}
+<section class="career-section">
+  <h2>Certifications</h2>
+  <ul class="cert-list">
+    {% for cert in career.certifications %}
+      <li>
+        <strong>{{ cert.name }}</strong>
+        <span class="cert-meta">{{ cert.issuer }} · {{ cert.date }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}

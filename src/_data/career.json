@@ -1,0 +1,70 @@
+{
+  "summary": "A results-driven professional with experience in technology and infrastructure. Passionate about building systems that scale and sharing knowledge with others.",
+  "experience": [
+    {
+      "company": "Laminex Australia",
+      "logo": null,
+      "roles": [
+        {
+          "title": "Systems Engineer",
+          "type": "Full-time",
+          "startDate": "2023-05",
+          "endDate": null,
+          "description": null,
+          "highlights": [
+            "Leading end-to-end modernization and migration of mission-critical SCADA systems from Windows Server 2008 to 2022, coordinating 5+ departments and 4 external vendors.",
+            "Designed a high-availability cluster for improved reliability and maintainability and ensured zero downtime during the cutover of 24/7 live production assets.",
+            "Developed custom Python and Go tools for diagnostics, configuration automation, and data extraction, including reverse-engineering undocumented vendor APIs.",
+            "Architected a Linux-based (Debian) thin-client ecosystem to replace aging Windows HMIs, saving $40k+ in CAPEX and eliminating OS downtime on the factory floor.",
+            "Acted as the primary technical liaison between IT, OT, and external vendors during critical incidents, coordinating root-cause analysis (RCA) for complex system failures.",
+            "Recognized with the company wide “Be Bold” Award (2025) at the inaugural national achievement awards."
+          ]
+        },
+        {
+          "title": "Interim Team Leader",
+          "type": "Full-time",
+          "startDate": "2022-07",
+          "endDate": "2022-12",
+          "description": null,
+          "highlights": [
+            "Led a team of 12 operators, consistently exceeding production and safety targets."
+          ]
+        },
+        {
+          "title": "Process Operator",
+          "type": "Full-time",
+          "startDate": "2021-09",
+          "endDate": "2023-4",
+          "description": null,
+          "highlights": [
+            "Operated heavy industrial plant machinery on 12-hour rotating day/night shifts."
+          ]
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Deakin University",
+      "degree": "Bachelor of Computer Science",
+      "field": "Embedded Systems",
+      "startDate": "2023",
+      "endDate": "2025"
+    }
+  ],
+  "skills": [
+    {
+      "category": "Technologies",
+      "items": ["C++20/23", "Python", "Go", "SQL", "Bash", "Linux", "Boost.Asio/Beast", "CMake", "Git", "Docker", "Windows Server", "SCADA/HMI", "TCP/IP", "Networking", "Virtualization"]
+    },
+    {
+      "category": "Skills",
+      "items": ["Systems Architecture & Design", "Production Troubleshooting", "Cross-Functional Communication", "Automation & Tooling", "Project Management", "Technical Leadership"]
+    },
+    {
+      "category": "Interests",
+      "items": ["Film & Media Technology", "Running", "Electronics", "Home Lab Tinkering"]
+    }
+  ],
+  "certifications": null
+}

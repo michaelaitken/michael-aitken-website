@@ -1,0 +1,9 @@
+---
+layout: layouts/base.njk
+hasSidebars: false
+---
+
+<article class="career-page">
+  {{ content | safe }}
+  {% include "components/career-timeline/career-timeline.njk" %}
+</article>

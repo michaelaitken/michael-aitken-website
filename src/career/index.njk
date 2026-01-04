@@ -1,0 +1,26 @@
+---
+layout: layouts/career.njk
+title: Career
+description: My professional experience, education, and skills.
+---
+
+<header class="career-header">
+
+<p class="career-summary">{{ career.summary }}</p>
+<p class="text-meta text-small">Want to know more about me personally? <a href="/about/">Read about me</a></p>
+
+<div class="career-actions">
+  <a href="{{ site.resume.pdf }}" class="btn btn-primary" download>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+      <polyline points="7 10 12 15 17 10"/>
+      <line x1="12" y1="15" x2="12" y2="3"/>
+    </svg>
+    Download Resume
+  </a>
+  <a href="{{ site.social.linkedin }}" class="btn btn-secondary" target="_blank" rel="noopener">
+    View LinkedIn
+  </a>
+</div>
+
+</header>

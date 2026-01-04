@@ -1,0 +1,50 @@
+<header class="nav-top" id="nav-top">
+  <div class="nav-top-inner">
+    <a href="/" class="nav-logo" aria-label="Home">
+      <svg width="348" height="207" viewBox="0 0 348 207" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-mark">
+        <path d="M140.166 207L244.332 0L348 206.604L309.333 206.937L244.332 77.5182L179.5 207H140.166Z"/>
+        <path d="M34.0443 206.937H0.000183105V0L103.801 103.635L207.603 0V48.6518L103.801 152.62L34.0443 83.308V206.937Z"/>
+      </svg>
+      {# <span class="logo-mark">MA</span> #}
+      <span class="logo-text">{{ site.name }}</span>
+    </a>
+    
+    <nav class="nav-main" aria-label="Main navigation">
+      <ul class="nav-list">
+        {% for item in navigation.main %}
+          <li class="nav-item">
+            <a href="{{ item.url }}" 
+               class="nav-link{% if page.url === item.url %} is-active{% endif %}"
+               {% if page.url === item.url %}aria-current="page"{% endif %}>
+              {{ item.label }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    
+    <div class="nav-actions">
+      <button class="search-toggle" id="search-toggle" aria-label="Search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
+      
+      {% include "components/theme-toggle/theme-toggle.njk" %}
+    </div>
+  </div>
+  
+  <!-- Search Modal -->
+  <div class="search-modal" id="search-modal" hidden>
+    <div class="search-modal-backdrop"></div>
+    <div class="search-modal-content">
+      <div id="search-container"></div>
+      <button class="search-close" id="search-close" aria-label="Close search">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6 6 18M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>

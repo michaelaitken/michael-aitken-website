@@ -1,0 +1,188 @@
+/* =========================================
+   CAREER TIMELINE
+   ========================================= */
+.career-section {
+  margin-bottom: 4rem;
+}
+
+.career-section h2 {
+  margin-bottom: 2rem;
+}
+
+/* Timeline */
+.timeline-company {
+  margin-bottom: 3rem;
+}
+
+.timeline-company-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.company-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.company-logo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--code-bg);
+  color: var(--text-meta);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.company-name {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.timeline-roles {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline-roles::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border-color);
+}
+
+.timeline-role {
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.timeline-role:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -2rem;
+  top: 0.35rem;
+  width: 16px;
+  height: 16px;
+  background: var(--bg-color);
+  border: 2px solid var(--accent-color);
+  border-radius: 50%;
+}
+
+.timeline-role:first-child .timeline-marker {
+  background: var(--accent-color);
+}
+
+.role-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.role-title {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--text-heading);
+}
+
+.role-type {
+  font-size: 0.75rem;
+  color: var(--text-meta);
+  background: var(--code-bg);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.role-dates {
+  font-size: 0.85rem;
+  color: var(--text-meta);
+  margin: 0.25rem 0 0.75rem;
+}
+
+.role-description {
+  margin-bottom: 0.75rem;
+}
+
+.role-highlights {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: var(--text-color);
+}
+
+.role-highlights li {
+  margin-bottom: 0.25rem;
+}
+
+/* Education */
+.education-item {
+  margin-bottom: 1.5rem;
+}
+
+.education-item h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+}
+
+.education-meta {
+  color: var(--text-meta);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* Skills */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.skill-group h4 {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  color: var(--text-heading);
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  background: var(--code-bg);
+  color: var(--text-color);
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+/* Certifications */
+.cert-list {
+  list-style: none;
+  padding: 0;
+}
+
+.cert-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.cert-meta {
+  font-size: 0.85rem;
+  color: var(--text-meta);
+}

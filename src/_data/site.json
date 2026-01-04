@@ -1,0 +1,15 @@
+{
+  "name": "Michael Aitken",
+  "shortName": "MA",
+  "url": "https://michaelaitken.com",
+  "description": "Personal knowledge base, writings, and career information.",
+  "author": "Michael Aitken",
+  "social": {
+    "linkedin": "https://linkedin.com/in/your-profile",
+    "github": "https://github.com/your-username",
+    "email": "hello@michaelaitken.com"
+  },
+  "resume": {
+    "pdf": "/_assets/resume/michael-aitken-resume.pdf"
+  }
+}

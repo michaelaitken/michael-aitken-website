@@ -1,21 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>{{ title or "Coming Soon" }}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="{{ description or 'Michael Aitken | Coming Late Dec 2026.' }}" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title | default(site.name) }} | {{ site.name }}</title>
+  <meta name="description" content="{{ description | default(site.description) }}">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/_assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/_assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/_assets/favicon-16x16.png">
+  <link rel="manifest" href="/_assets/site.webmanifest">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <script>
+    (function() {
+      // Get stored theme or system preference
+      var theme = localStorage.getItem('theme') || 
+                  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      // Apply immediately to <html>
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
   <link rel="stylesheet" href="/_css/style.css">
-  <link rel="icon" href="/_assets/favicon.ico" type="image/x-icon">
+  
+  <!-- Pagefind -->
+  <link rel="stylesheet" href="/pagefind/pagefind-ui.css">
 </head>
 <body>
-  <main class="page">
-    <section class="page-content">
+  {% include "components/nav-top/nav-top.njk" %}
+  
+  <div class="layout" data-has-sidebars="{{ hasSidebars | default(false) }}">
+    {% if hasSidebars %}
+      <aside class="sidebar sidebar-left" id="sidebar-left" aria-label="Site navigation">
+        {% include "components/sidebar-left/sidebar-left.njk" %}
+      </aside>
+    {% endif %}
+    
+    <main id="main-content" tabindex="-1">
+      {% if showBreadcrumbs %}
+        {% include "components/breadcrumbs/breadcrumbs.njk" %}
+      {% endif %}
+      
       {{ content | safe }}
-    </section>
-  </main>
+    </main>
+    
+    {% if hasSidebars and toc %}
+      <aside class="sidebar sidebar-right" id="sidebar-right" aria-label="Table of contents">
+        {% include "components/sidebar-right/sidebar-right.njk" %}
+      </aside>
+    {% endif %}
+  </div>
+  
+  {% include "components/mobile-controls/mobile-controls.njk" %}
+  {% include "components/footer/footer.njk" %}
+  
+  <!-- Scripts -->
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script src="/_js/main.js" type="module"></script>
 </body>
 </html>

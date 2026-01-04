@@ -1,0 +1,45 @@
+<div class="sidebar-left-content">
+  <button class="sidebar-close" id="sidebar-left-close" aria-label="Close navigation">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M18 6 6 18M6 6l12 12"/>
+    </svg>
+  </button>
+  
+  <nav class="sidebar-nav" aria-label="Knowledge base navigation">
+    {% set crumbs = page.url | breadcrumbs %}
+    
+    {% if crumbs.length > 0 %}
+      <div class="sidebar-section">
+        <h3 class="sidebar-heading">Navigation</h3>
+        <ul class="sidebar-list">
+          <li><a href="/knowledge/" class="sidebar-link">← Knowledge Base</a></li>
+          {% for crumb in crumbs %}
+            <li>
+              <a href="{{ crumb.url }}" 
+                 class="sidebar-link{% if page.url === crumb.url %} is-current{% endif %}">
+                {{ crumb.label }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+    
+    {% set navItems = collections | getNavItems(page.url) %}
+    {% if navItems.length > 0 %}
+      <div class="sidebar-section">
+        <h3 class="sidebar-heading">In This Section</h3>
+        <ul class="sidebar-list">
+          {% for item in navItems | sortByOrder %}
+            <li>
+              <a href="{{ item.url }}" 
+                 class="sidebar-link{% if page.url === item.url %} is-current{% endif %}">
+                {{ item.data.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  </nav>
+</div>

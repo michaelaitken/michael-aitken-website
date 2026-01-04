@@ -1,5 +1,18 @@
 {
   "projects": {
     "default": "michael-aitken-website"
-  }
+  },
+  "targets": {
+    "michael-aitken-website": {
+      "hosting": {
+        "prod": [
+          "michael-aitken-website"
+        ],
+        "dev": [
+          "michael-aitken-website-dev"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

@@ -1,0 +1,29 @@
+---
+permalink: /_css/style.css
+eleventyExcludeFromCollections: true
+---
+
+/* =========================================
+   1. GLOBAL STYLES
+   ========================================= */
+{% include "css/global.css" %}
+
+/* =========================================
+   2. COMPONENT STYLES
+   ========================================= */
+{% set components = [
+  "breadcrumbs",
+  "callout",
+  "career-timeline",
+  "footer",
+  "mobile-controls",
+  "nav-top",
+  "sidebar-left",
+  "sidebar-right",
+  "theme-toggle"
+] %}
+
+{% for component in components %}
+/* --- Component: {{ component }} --- */
+{% include "components/" + component + "/" + component + ".css" %}
+{% endfor %}

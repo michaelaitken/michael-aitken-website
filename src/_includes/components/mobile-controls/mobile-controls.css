@@ -1,0 +1,70 @@
+/* =========================================
+   MOBILE CONTROLS - Bottom Bar
+   ========================================= */
+.mobile-controls {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg-color);
+  border-top: 1px solid var(--border-color);
+  padding: 0.5rem;
+  padding-bottom: calc(0.5rem + env(safe-area-inset-bottom));
+  justify-content: space-around;
+  z-index: 100;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.mobile-controls.is-visible {
+  transform: translateY(0);
+}
+
+@media (min-width: 768px) {
+  .mobile-controls {
+    display: none;
+  }
+}
+
+.mobile-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: none;
+  color: var(--text-meta);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.mobile-btn:hover,
+.mobile-btn:focus {
+  color: var(--text-heading);
+}
+
+.mobile-btn-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Overlay for mobile sidebars */
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 140;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-overlay.is-visible {
+  opacity: 1;
+}
+
+.mobile-overlay[hidden] {
+  display: none;
+}

@@ -1,0 +1,30 @@
+<div class="mobile-controls" id="mobile-controls">
+  <button class="mobile-btn" id="mobile-menu-toggle" aria-label="Open navigation">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M3 12h18M3 6h18M3 18h18"/>
+    </svg>
+    <span class="mobile-btn-label">Menu</span>
+  </button>
+  
+  <button class="mobile-btn" id="mobile-search-toggle" aria-label="Search">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="11" cy="11" r="8"/>
+      <path d="m21 21-4.35-4.35"/>
+    </svg>
+    <span class="mobile-btn-label">Search</span>
+  </button>
+  
+  <button class="mobile-btn" id="mobile-toc-toggle" aria-label="Table of contents">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>
+    </svg>
+    <span class="mobile-btn-label">Contents</span>
+  </button>
+  
+  <div class="mobile-btn">
+    {% include "components/theme-toggle/theme-toggle.njk" %}
+  </div>
+</div>
+
+<!-- Mobile overlay -->
+<div class="mobile-overlay" id="mobile-overlay" hidden></div>
