@@ -5,9 +5,7 @@
   "description": "Personal portfolio website for Michael Aitken",
   "scripts": {
     "dev": "eleventy --serve --port=8080",
-    "search": "npx pagefind --site public",
-    "build": "eleventy && npm run search --silent",
-    "build:eleventy": "eleventy",
+    "build": "eleventy",
     "clean": "rm -rf public",
     "rebuild": "npm run clean --silent && npm run build --silent",
     "host": "firebase emulators:start --only hosting",
