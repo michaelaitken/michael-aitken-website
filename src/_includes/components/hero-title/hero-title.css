@@ -1,0 +1,110 @@
+/* =========================================
+   HERO-TITLE
+   ========================================= */
+
+.hero-title_section {
+  text-transform: uppercase;
+}
+
+h2.hero-title_subtitle {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #888888;
+  letter-spacing: 0.35em; /* Stretches the text like an underline */
+  margin: 0.5rem 0 0 0;
+}
+
+.hero-title_title {
+  position: relative;
+  color: #ffffff;
+  font-size: 80px;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 300;
+  font-size: clamp(5rem, 6vw, 7rem);
+  margin: 0;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+
+/* --- Generated Loop Animations --- */
+/* Clip runs over 4s (slightly slower), Glitch runs over 5s with random offset delays */
+
+.hero-title_title-seqment:not(:first-child) {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+/* --- The Master Glitch Animation --- */
+/* Instead of hardcoding pixels, we use variables: --shift1, --shift2, --shift3 
+  This allows one keyframe to handle every single segment.
+*/
+@keyframes master-glitch {
+  0%, 95% { transform: translateX(0); color: #fff; }
+  96% { transform: translateX(var(--shift1)); color: #FF5F15; }
+  97% { transform: translateX(var(--shift2)); color: #FF5F15; }
+  98% { transform: translateX(var(--shift3)); color: #fff; }
+  100% { transform: translateX(0); }
+}
+
+/* --- Shared Clip Animation --- */
+@keyframes clip {
+  0% { clip-path: polygon(0 100%, 100% 100%, 100% 120%, 0 120%); }
+  100% { clip-path: polygon(0 -20%, 100% -20%, 100% 0%, 0 0); }
+}
+
+/* --- Assigning Values and Delays --- */
+
+.hero-title_title-seqment:nth-child(1) {
+  --shift1: 2px; --shift2: -3px; --shift3: 4px;
+  animation: clip 4000ms -400ms linear infinite, master-glitch 5000ms -420ms linear infinite;
+}
+
+.hero-title_title-seqment:nth-child(2) {
+  --shift1: -1px; --shift2: 5px; --shift3: -2px;
+  animation: clip 4000ms -800ms linear infinite, master-glitch 5000ms -870ms linear infinite;
+}
+
+.hero-title_title-seqment:nth-child(3) {
+  --shift1: 3px; --shift2: -4px; --shift3: 1px;
+  animation: clip 4000ms -1200ms linear infinite, master-glitch 5000ms -120ms linear infinite;
+}
+
+.hero-title_title-seqment:nth-child(4) {
+  --shift1: -4px; --shift2: 2px; --shift3: -3px;
+  animation: clip 4000ms -1600ms linear infinite, master-glitch 5000ms -950ms linear infinite;
+}
+
+.hero-title_title-seqment:nth-child(5) {
+  --shift1: 5px; --shift2: 0px; --shift3: 4px;
+  animation: clip 4000ms -2000ms linear infinite, master-glitch 5000ms -530ms linear infinite;
+}
+
+.hero-title_title-seqment:nth-child(6) {
+  --shift1: -2px; --shift2: -1px; --shift3: 3px;
+  animation: clip 4000ms -2400ms linear infinite, master-glitch 5000ms -210ms linear infinite;
+}
+
+.hero-title_title-seqment:nth-child(7) {
+  --shift1: 1px; --shift2: 4px; --shift3: -2px;
+  animation: clip 4000ms -2800ms linear infinite, master-glitch 5000ms -760ms linear infinite;
+}
+
+.hero-title_title-seqment:nth-child(8) {
+  --shift1: -3px; --shift2: 2px; --shift3: 5px;
+  animation: clip 4000ms -3200ms linear infinite, master-glitch 5000ms -340ms linear infinite;
+}
+
+.hero-title_title-seqment:nth-child(9) {
+  --shift1: 4px; --shift2: -3px; --shift3: -1px;
+  animation: clip 4000ms -3600ms linear infinite, master-glitch 5000ms -890ms linear infinite;
+}
+
+.hero-title_title-seqment:nth-child(10) {
+  --shift1: -1px; --shift2: 5px; --shift3: 2px;
+  animation: clip 4000ms -4000ms linear infinite, master-glitch 5000ms -80ms linear infinite;
+}
+

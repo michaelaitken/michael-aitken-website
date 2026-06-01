@@ -1,0 +1,12 @@
+{% macro locationStatus(currentLocation) %}
+<div class="location-status_wrapper">
+  <p class="location-status_work-auth">🇺🇸 U.S. Permanent Resident |  🇦🇺 Australian Citizen</p>
+  <div class="location-status_location-wrapper">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="location-status_location-icon">
+      <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/>
+      <circle cx="12" cy="10" r="3"/>
+    </svg>
+    <p class="location-status_location-label">{{ currentLocation }}</p>
+  </div>
+</div>
+{% endmacro %}

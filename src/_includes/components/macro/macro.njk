@@ -1,0 +1,19 @@
+{% macro articleCard(title, description, url) %}
+  <article class="card">
+    <h2><a href="{{ url }}">{{ title }}</a></h2>
+    <p>{{ description }}</p>
+  </article>
+{% endmacro %}
+
+
+
+{# Pull exactly the macro you want from the file #}
+{% from "components/card.njk" import articleCard %}
+
+<div class="grid">
+  {# Call it directly #}
+  {{ articleCard("My First Post", "A brief intro here.", "/posts/first/") }}
+</div>
+
+
+{% include "partials/header.njk" %}

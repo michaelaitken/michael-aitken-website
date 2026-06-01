@@ -4,7 +4,7 @@
   --text-primary: #FFFFFF;
   --text-muted: #888888;
   --text-offwhite: #EDEDED;
-  --accent-copper: #E35335; /* Your signature Industrial Copper */
+  --accent-copper: #E35335;
   
   --font-display: 'Barlow', sans-serif;
   --font-mono: 'Fira Code', monospace;
@@ -15,22 +15,21 @@ body, html {
   padding: 0;
   width: 100%;
   height: 100vh;
-  /* background-color: var(--bg-color); */
+  background-color: var(--bg-color);
   color: var(--text-primary);
   overflow: hidden; /* Prevents scrolling */
+
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* Legacy Edge/IE */
+  user-select: none;         /* Standard syntax */
 }
 
-/* --- BACKGROUND VIDEO --- */
-
+/* --- BACKGROUND --- */
 .bg-wrapper {
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100vw;
-  height: 110vh;
-  z-index: 0;
-  overflow: hidden;
-  background-color: var(--bg-color);
+  height: 110vh; 
 }
 
 .bg-video {
@@ -39,22 +38,26 @@ body, html {
   left: 50%;
   min-width: 100%;
   min-height: 100%;
-  width: auto;
-  height: auto;
   transform: translateX(-50%) translateY(-50%);
-  opacity: 0.3; /* Keeps it subtle */
-  filter: grayscale(100%) blur(2px); /* Industrial shadow effect blur(3px) */
+  opacity: 0.2;
+  filter: grayscale(100%) blur(2px);
 }
 
-.vignette {
+.bg-dots {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  /* Darkens the edges and leaves the center visible */
-  background: radial-gradient(circle, transparent 10%, var(--bg-color) 100%);
-  z-index: 1; /* Sits on top of the video */
-  pointer-events: none; /* Lets clicks pass through */
+  height: 100vh;
+  width: 100%;
+  background-image: radial-gradient(circle, #3f3f44 1px, transparent 1px);
+  background-size: 20px 20px; 
 }
+
+.bg-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none; /* Prevents the overlay from blocking clicks */
+  background: radial-gradient(ellipse at center, transparent 20%, var(--bg-color) 80%);
+}
+
 
 /* --- LAYOUT WRAPPER --- */
 .page {
@@ -66,24 +69,7 @@ body, html {
   flex-direction: column;
 }
 
-/* --- TOP LEFT: LOGISTICS --- */
-.logistics {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
 
-.logistics .accent-icon {
-  color: var(--accent-copper);
-  width: 18px;
-  height: 18px;
-}
 
 /* --- CENTER LOCKUP --- */
 .center-lockup {
@@ -95,40 +81,201 @@ body, html {
   text-align: center;
 }
 
-h1 {
-  font-family: var(--font-display);
-  font-weight: 300;
-  font-size: clamp(5rem, 6vw, 7rem);
-  margin: 0;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
-}
-
-h2.job-title {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: 1rem;
-  color: var(--text-muted);
-  letter-spacing: 0.35em; /* Stretches the text like an underline */
-  margin: 0.5rem 0 0 0;
-}
-
-/* --- THE DATA GRID (CONTENT) --- */
-.tech-specs {
+.index_tagline {
   margin-top: 3.5rem; /* The moat of whitespace */
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-style: italic;
   color: var(--text-offwhite);
-  line-height: 2.2;
+  line-height: 2;
+}
+
+/* =========================================
+   TECH SPECS (Responsive Pipeline)
+   ========================================= */
+
+.tech-specs {
+  width: 100%;
+  padding: 0 1rem; /* Gives it breathing room on the edges */
+  margin-top: 1.5rem;
 }
 
 .spec-line {
-  white-space: nowrap;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  
+  /* Typography */
+  color: #a0a0a0; /* Expensive silver/grey */
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
-.pipe {
-  color: var(--accent-copper);
+.item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap; /* Prevents phrases like "Critical Infrastructure" from splitting in half */
+}
+
+.item:hover {
+  color: #FF5F15;
+  cursor: default;
+}
+
+/* Auto-generates the pipe divider on desktop */
+.item:not(:last-child)::after {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 14px;
+  background-color: rgba(255, 255, 255, 0.15); /* A subtle, classy divider */
+  margin: 0 1rem; /* Spacing on either side of the pipe */
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+   ========================================= */
+
+/* When the screen gets smaller than an iPad */
+@media (max-width: 768px) {
+  .spec-line {
+    flex-direction: column; /* Stacks them vertically */
+    gap: 0.6rem; /* Space between stacked items */
+  }
+  
+  /* Hides the pipes since they are now stacked */
+  .item:not(:last-child)::after {
+    display: none; 
+  }
+}
+
+
+/* =========================================
+   HUD BUTTONS (The Executive "Classy" Vibe)
+   ========================================= */
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-top: 5rem;
+}
+
+.button-design {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.8rem 1.6rem;
+  /* min-width: 140px; */
+  
+  /* Modernist Typography */
+  color: #c0c0c0; /* A soft, expensive silver/grey */
+  text-decoration: none;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
   font-weight: 500;
-  margin: 0 0.8rem;
-  opacity: 0.9;
+  font-family: 'Barlow', sans-serif;
+  /* font-family: 'Fira Code', monospace; */
+  
+  /* The Clean Glass Base */
+  background: rgba(10, 10, 10, 0.3); 
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  
+  /* A perfectly crisp, ultra-thin border. No chamfer. */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  /* Smooth, deliberate timing */
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.button-design svg {
+  width: 18px;
+  height: 18px;
+  /* fill: currentColor;  */
+  transition: all 0.3s ease;
+}
+
+/* =========================================
+   THE MICRO-INTERACTION (Expanding Underline)
+   ========================================= */
+
+/* This creates an invisible line at the bottom center of the button */
+.button-design::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; /* Sits perfectly over the bottom border */
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #FF5F15; /* Your accent color */
+  transform: translateX(-50%);
+  transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* =========================================
+   THE HOVER STATE
+   ========================================= */
+
+.button-design:hover {
+  color: #ffffff; /* Text snaps to pure white */
+  background: rgba(10, 10, 10, 0.7); /* Glass darkens to make the text pop */
+  border-color: rgba(255, 255, 255, 0.2); /* Outer border subtly brightens */
+  transform: translateY(-1px);
+  cursor: pointer;
+}
+
+/* The orange line smoothly draws outward from the center */
+.button-design:hover::after {
+  width: 100%;
+}
+
+
+.footer-glass {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px; /* Tall enough for a very smooth, gradual fade */
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 2rem;
+  
+  /* The Dark Fade */
+  background: linear-gradient(
+    to bottom, 
+    rgba(10, 10, 10, 0) 0%, 
+    rgba(10, 10, 10, 0.95) 100%
+  );
+  
+  /* The Glass Blur */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
+  /* The Secret Weapon: Fades the blur itself so there is no harsh top edge */
+  mask-image: linear-gradient(to bottom, transparent 0%, black 60%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 60%);
+  
+  /* Ensure it sits above the background but below modals/popups */
+  z-index: 10; 
+  pointer-events: none; /* Prevents the invisible top half from blocking clicks */
+}
+
+/* Typography for the Copyright */
+.footer-glass p {
+  color: #555555; /* A very subdued, muted grey */
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin: 0;
+  pointer-events: auto; /* Allows text selection if someone really wants to */
 }

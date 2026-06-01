@@ -1,0 +1,36 @@
+/* =========================================
+   LOCATION-STATUS
+   ========================================= */
+
+.location-status_wrapper {
+  position: absolute;
+  top: 1.5rem;
+  left: 2rem;
+  align-items: center;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  color: #888888;
+  margin: 0;
+  padding: 0;
+}
+
+.location-status_work-auth {
+  margin: 0;
+  padding: 0;
+}
+
+.location-status_location-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.location-status_location-icon {
+  color: #888888;
+  width: 18px;
+  height: 18px;
+}
+
+.location-status_location-label {
+
+}
