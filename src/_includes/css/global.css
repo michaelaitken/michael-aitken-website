@@ -86,47 +86,30 @@ main {
   font-style: italic;
   color: var(--text-offwhite);
   line-height: 2;
+  padding: 0 1rem;
 }
 
+/* 1. Large Laptops / Smaller Desktops */
+@media (max-width: 1200px) {
+  /* Targets: 13" MacBooks, standard laptops */
+}
 
+/* 2. Tablets (Landscape) / Small Laptops */
+@media (max-width: 1024px) {
+  /* Targets: iPad Pro, older laptops */
+}
 
+/* 3. Tablets (Portrait) / Large Phones */
 @media (max-width: 768px) {
-  /* Scale down the massive glitch text */
-  .hero-title_title {
-    font-size: clamp(2.5rem, 8vw, 4rem); 
-  }
+  /* Targets: Standard iPads, large Android tablets */
+  /* *This is usually where you switch from side-by-side to stacked layouts* */
+}
 
-  /* Un-pin the location status so it doesn't overlap text */
-  .location-status_wrapper {
-    position: relative;
-    top: 0;
-    left: 0;
-    justify-content: center;
-    margin-top: 2rem;
-    width: 100%;
-  }
-
-  /* Reduce the moat of whitespace */
+/* 4. Mobile Phones */
+@media (max-width: 480px) {
   .index_tagline {
     margin-top: 2rem;
-    font-size: 1.1rem;
-    padding: 0 1rem;
-  }
-
-  /* Bring buttons closer together */
-  .button-container {
-    gap: 1.5rem;
-    margin-top: 3rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-title_title-seqment {
-    animation: none !important;
-    transform: none !important;
-    clip-path: none !important;
-  }
-  .hero-title_title-seqment:not(:first-child) {
-    display: none; /* Hide the duplicate layers entirely */
+    font-size: 1rem;
+    line-height: 1.2;
   }
 }

@@ -73,3 +73,27 @@
 .button-design:hover::after {
   width: 100%;
 }
+
+/* 1. Large Laptops / Smaller Desktops */
+@media (max-width: 1200px) {
+  /* Targets: 13" MacBooks, standard laptops */
+}
+
+/* 2. Tablets (Landscape) / Small Laptops */
+@media (max-width: 1024px) {
+  /* Targets: iPad Pro, older laptops */
+}
+
+/* 3. Tablets (Portrait) / Large Phones */
+@media (max-width: 768px) {
+  /* Targets: Standard iPads, large Android tablets */
+  /* *This is usually where you switch from side-by-side to stacked layouts* */
+}
+
+/* 4. Mobile Phones */
+@media (max-width: 480px) {
+  .button-container {
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+}

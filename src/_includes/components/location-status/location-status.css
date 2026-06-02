@@ -30,3 +30,37 @@
   width: 18px;
   height: 18px;
 }
+
+/* 1. Large Laptops / Smaller Desktops */
+@media (max-width: 1200px) {
+  /* Targets: 13" MacBooks, standard laptops */
+}
+
+/* 2. Tablets (Landscape) / Small Laptops */
+@media (max-width: 1024px) {
+  /* Targets: iPad Pro, older laptops */
+}
+
+/* 3. Tablets (Portrait) / Large Phones */
+@media (max-width: 768px) {
+  /* Targets: Standard iPads, large Android tablets */
+  /* *This is usually where you switch from side-by-side to stacked layouts* */
+}
+
+/* 4. Mobile Phones */
+@media (max-width: 480px) {
+  .location-status_wrapper {
+    top: 1rem;
+    left: 1rem;
+    font-size: 0.60rem;
+  }
+
+  .location-status_location-wrapper {
+    gap: 0.3rem;
+  }
+
+  .location-status_location-icon {
+    width: 12px;
+    height: 12px;
+  }
+}

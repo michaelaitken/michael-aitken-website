@@ -108,3 +108,31 @@ h2.hero-title_subtitle {
   animation: clip 4000ms -4000ms linear infinite, master-glitch 5000ms -80ms linear infinite;
 }
 
+/* 1. Large Laptops / Smaller Desktops */
+@media (max-width: 1200px) {
+  /* Targets: 13" MacBooks, standard laptops */
+}
+
+/* 2. Tablets (Landscape) / Small Laptops */
+@media (max-width: 1024px) {
+  /* Targets: iPad Pro, older laptops */
+}
+
+/* 3. Tablets (Portrait) / Large Phones */
+@media (max-width: 768px) {
+  /* Targets: Standard iPads, large Android tablets */
+  /* *This is usually where you switch from side-by-side to stacked layouts* */
+}
+
+/* 4. Mobile Phones */
+@media (max-width: 480px) {
+  h2.hero-title_subtitle {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em; /* Stretches the text like an underline */
+    margin: 0.5rem 0 0 0;
+  }
+
+  .hero-title_title {
+    font-size: 60px;
+  }
+}

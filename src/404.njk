@@ -5,17 +5,23 @@ description: Page not found.
 permalink: /404.html
 ---
 
-<section class="hero">
-  <div class="container">
-    <div class="hero-content">
-      <span class="hero-label">404</span>
-      <h1>Page Not Found</h1>
-      <p class="hero-description">
-        The page you're looking for doesn't exist or has been moved.
-      </p>
-      <a href="/" class="hero-status" style="display: inline-block; margin-top: var(--space-lg);">
-        Return Home
-      </a>
-    </div>
+{# --- IMPORTS --- #}
+{% from "components/hero-title/hero-title.njk" import heroTitle %}
+
+{# --- Background --- #}
+<div class="bg-wrapper">
+  <div class="bg-dots"></div>
+  <div class="bg-vignette"></div>
+</div>
+
+{# --- Main Content --- #}
+<main>
+
+  <div class="index_container">
+    {{ heroTitle("- 404 -", "Page Not Found") }}
+
+    <a class="button-design" style="margin-top: 5rem;" href="https://www.michaelaitken.com">
+      <span>Return Home</span>
+    </a>
   </div>
-</section>
+</main>
