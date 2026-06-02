@@ -1,43 +1,34 @@
+// const markdownIt = require("markdown-it");
+// const markdownItAnchor = require("markdown-it-anchor");
+// const pluginTOC = require("eleventy-plugin-toc");
+// const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
+// const bundlerPlugin = require("@11ty/eleventy-plugin-bundle");
+
 module.exports = async function (eleventyConfig) {
-  // Copy directly from src to public folder
-  eleventyConfig.addPassthroughCopy("src/_css");
+  // -------------------------
+  // Passthrough copies
+  // -------------------------
   eleventyConfig.addPassthroughCopy("src/_assets");
+  // eleventyConfig.addPassthroughCopy("src/_css");
+  eleventyConfig.addPassthroughCopy("src/_js");
 
-  eleventyConfig.addCollection("posts", function (collectionApi) {
-    return collectionApi.getFilteredByGlob("src/posts/*.md").reverse();
-  });
-
-  // Human-readable date
-  eleventyConfig.addFilter("date", function (date) {
-    const d = new Date(date);
-    const options = { year: "numeric", month: "long" };
-    return d.toLocaleDateString("en-AU", options);
-  });
-
-  // ISO date for sitemap
-  eleventyConfig.addFilter("isoDate", function (date) {
-    return new Date(date).toISOString().split("T")[0];
-  });
-
-  // RSS date format
-  eleventyConfig.addFilter("rssDate", function (date) {
-    return new Date(date).toUTCString();
-  });
-
-  // Limit filter for RSS
-  eleventyConfig.addFilter("head", function (array, n) {
-    return array.slice(0, n);
-  });
+  // -------------------------
+  // Watch targets
+  // -------------------------
+  eleventyConfig.addWatchTarget("src/_assets/");
+  eleventyConfig.addWatchTarget("src/_css/");
+  eleventyConfig.addWatchTarget("src/_js/");
+  eleventyConfig.addWatchTarget("src/_includes/components/");
 
   return {
     dir: {
       input: "src",
-      includes: "_includes",
       output: "public",
+      includes: "_includes",
       data: "_data"
     },
-    templateFormats: ["njk", "html", "md", "txt", "json"],
+    markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
-    markdownTemplateEngine: "njk"
+    templateFormats: ["md", "njk", "html"],
   };
 };

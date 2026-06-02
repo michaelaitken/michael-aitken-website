@@ -1,21 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>{{ title or "Michael Aitken" }}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="{{ description or 'Michael Aitken' }}" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title | default(site.name) }}</title>
+  <meta name="description" content="{{ description | default(site.description) }}">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/_assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/_assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/_assets/favicon-16x16.png">
+  <link rel="manifest" href="/_assets/site.webmanifest">
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.michaelaitken.com/">
+  <meta property="og:title" content="Michael Aitken | OT Systems Engineer">
+  <meta property="og:description" content="Architecting, integrating, and securing complex industrial systems—from edge devices to the enterprise cloud in Austin, TX.">
+  <meta property="og:image" content="https://www.michaelaitken.com/_assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter / X -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.michaelaitken.com/">
+  <meta property="twitter:title" content="Michael Aitken | OT Systems Engineer">
+  <meta property="twitter:description" content="Architecting, integrating, and securing complex industrial systems—from edge devices to the enterprise cloud in Austin, TX.">
+  <meta property="twitter:image" content="https://www.michaelaitken.com/_assets/og-image.png">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
   <link rel="stylesheet" href="/_css/style.css">
-  <link rel="icon" href="/_assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
-  <main class="page">
-    <section class="page-content">
-      {{ content | safe }}
-    </section>
-  </main>
+  {{ content | safe }}
+  {% include "components/footer/footer.njk" %}
+  
+  <!-- Scripts -->
+  <script src="/_js/main.js" type="module"></script>
 </body>
 </html>

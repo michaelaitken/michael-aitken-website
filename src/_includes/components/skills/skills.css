@@ -1,0 +1,75 @@
+/* =========================================
+   SKILLS
+   ========================================= */
+
+.tech-specs {
+  width: 100%;
+  padding: 0 1rem; /* Gives it breathing room on the edges */
+  margin-top: 1.5rem;
+}
+
+.spec-line {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  
+  /* Typography */
+  color: #a0a0a0; /* Expensive silver/grey */
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  gap: 1rem 0;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap; /* Prevents phrases like "Critical Infrastructure" from splitting in half */
+}
+
+.item:hover {
+  color: #FF5F15;
+  cursor: default;
+}
+
+/* Auto-generates the pipe divider on desktop */
+.item:not(:last-child)::after {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 14px;
+  background-color: rgba(255, 255, 255, 0.15); /* A subtle, classy divider */
+  margin: 0 1rem; /* Spacing on either side of the pipe */
+}
+
+/* 1. Large Laptops / Smaller Desktops */
+@media (max-width: 1200px) {
+  /* Targets: 13" MacBooks, standard laptops */
+}
+
+/* 2. Tablets (Landscape) / Small Laptops */
+@media (max-width: 1024px) {
+  /* Targets: iPad Pro, older laptops */
+}
+
+/* 3. Tablets (Portrait) / Large Phones */
+@media (max-width: 768px) {
+  .spec-line {
+    flex-direction: column; /* Stacks them vertically */
+    gap: 0.6rem; /* Space between stacked items */
+    font-size: 0.6rem;
+  }
+  
+  /* Hides the pipes since they are now stacked */
+  .item:not(:last-child)::after {
+    display: none; 
+    margin: 0;
+  }
+}
+
+/* 4. Mobile Phones */
+@media (max-width: 480px) {
+  
+}

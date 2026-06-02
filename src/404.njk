@@ -1,15 +1,27 @@
 ---
 layout: layouts/base.njk
-title: "404 | Not Found"
-permalink: 404.html
+title: Page Not Found — Michael Aitken
+description: Page not found.
+permalink: /404.html
 ---
-<div class="hero-title-box">
-  <h1 class="hero-title">404</h1>
-</div>
-<p class="hero-date">This page doesn't exist (yet).</p>
 
-<div class="links">
-  <a class="link-btn" href="/" >
-    <span>Back Home</span>
-  </a>
+{# --- IMPORTS --- #}
+{% from "components/hero-title/hero-title.njk" import heroTitle %}
+
+{# --- Background --- #}
+<div class="bg-wrapper">
+  <div class="bg-dots"></div>
+  <div class="bg-vignette"></div>
 </div>
+
+{# --- Main Content --- #}
+<main>
+
+  <div class="index_container">
+    {{ heroTitle("- 404 -", "Page Not Found") }}
+
+    <a class="button-design" style="margin-top: 5rem;" href="https://www.michaelaitken.com">
+      <span>Return Home</span>
+    </a>
+  </div>
+</main>

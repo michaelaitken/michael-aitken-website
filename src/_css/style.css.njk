@@ -1,0 +1,26 @@
+---
+permalink: /_css/style.css
+eleventyExcludeFromCollections: true
+---
+
+/* =========================================
+   1. GLOBAL STYLES
+   ========================================= */
+{% include "css/global.css" %}
+
+/* =========================================
+   2. COMPONENT STYLES
+   ========================================= */
+{% set components = [
+  "example",
+  "hero-title",
+  "location-status",
+  "skills",
+  "links",
+  "footer"
+] %}
+
+{% for component in components %}
+/* --- Component: {{ component }} --- */
+{% include "components/" + component + "/" + component + ".css" %}
+{% endfor %}

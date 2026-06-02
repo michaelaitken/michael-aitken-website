@@ -1,0 +1,73 @@
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.footer-glass {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px; /* Tall enough for a very smooth, gradual fade */
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 2rem;
+  
+  /* The Dark Fade */
+  background: linear-gradient(
+    to bottom, 
+    rgba(10, 10, 10, 0) 0%, 
+    rgba(10, 10, 10, 0.95) 100%
+  );
+  
+  /* The Glass Blur */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
+  /* The Secret Weapon: Fades the blur itself so there is no harsh top edge */
+  mask-image: linear-gradient(to bottom, transparent 0%, black 60%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 60%);
+  
+  /* Ensure it sits above the background but below modals/popups */
+  z-index: 10; 
+  pointer-events: none; /* Prevents the invisible top half from blocking clicks */
+}
+
+/* Typography for the Copyright */
+.footer-glass p {
+  color: #555555; /* A very subdued, muted grey */
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin: 0;
+  pointer-events: auto; /* Allows text selection if someone really wants to */
+}
+
+/* 1. Large Laptops / Smaller Desktops */
+@media (max-width: 1200px) {
+  /* Targets: 13" MacBooks, standard laptops */
+}
+
+/* 2. Tablets (Landscape) / Small Laptops */
+@media (max-width: 1024px) {
+  /* Targets: iPad Pro, older laptops */
+}
+
+/* 3. Tablets (Portrait) / Large Phones */
+@media (max-width: 768px) {
+  .footer-glass {
+    height: 100px; /* Tall enough for a very smooth, gradual fade */
+    padding-bottom: 1rem;
+  }
+
+  .footer-glass p {
+    font-size: 0.5rem;
+    letter-spacing: 0.15em;
+  }
+}
+
+/* 4. Mobile Phones */
+@media (max-width: 480px) {
+
+}

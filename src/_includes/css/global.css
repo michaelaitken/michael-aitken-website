@@ -1,0 +1,115 @@
+/* --- RESET & VARIABLES --- */
+:root {
+  --bg-color: #0A0A0A;
+  --text-primary: #FFFFFF;
+  --text-muted: #888888;
+  --text-offwhite: #EDEDED;
+  --accent-copper: #E35335;
+  
+  --font-display: 'Barlow', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  overflow: hidden; /* Prevents scrolling */
+
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* Legacy Edge/IE */
+  user-select: none;         /* Standard syntax */
+}
+
+/* --- BACKGROUND --- */
+.bg-wrapper {
+  position: fixed;
+  width: 100vw;
+  height: 110vh; 
+}
+
+.bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translateX(-50%) translateY(-50%);
+  opacity: 0.2;
+  filter: grayscale(100%) blur(2px);
+}
+
+.bg-dots {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  background-image: radial-gradient(circle, #3f3f44 1px, transparent 1px);
+  background-size: 20px 20px; 
+}
+
+.bg-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none; /* Prevents the overlay from blocking clicks */
+  background: radial-gradient(ellipse at center, transparent 20%, var(--bg-color) 80%);
+}
+
+
+/* --- LAYOUT WRAPPER --- */
+main {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- CENTER LOCKUP --- */
+.index_container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.index_tagline {
+  margin-top: 3.5rem; /* The moat of whitespace */
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--text-offwhite);
+  line-height: 2;
+  padding: 0 1rem;
+}
+
+/* 1. Large Laptops / Smaller Desktops */
+@media (max-width: 1200px) {
+  /* Targets: 13" MacBooks, standard laptops */
+}
+
+/* 2. Tablets (Landscape) / Small Laptops */
+@media (max-width: 1024px) {
+  /* Targets: iPad Pro, older laptops */
+}
+
+/* 3. Tablets (Portrait) / Large Phones */
+@media (max-width: 768px) {
+  /* Targets: Standard iPads, large Android tablets */
+  /* *This is usually where you switch from side-by-side to stacked layouts* */
+}
+
+/* 4. Mobile Phones */
+@media (max-width: 480px) {
+  .index_tagline {
+    margin-top: 2rem;
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+}

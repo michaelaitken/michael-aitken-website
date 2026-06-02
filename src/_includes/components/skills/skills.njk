@@ -1,0 +1,9 @@
+{% macro displaySkills(skill_list) %}
+  <div class="tech-specs">
+      <div class="spec-line">
+        {% for skill in skill_list %}
+        <span class="item">{{ skill }}</span>
+        {% endfor %}
+      </div>
+    </div>
+{% endmacro %}
