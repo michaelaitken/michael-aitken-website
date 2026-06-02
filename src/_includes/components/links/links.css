@@ -1,0 +1,75 @@
+/* =========================================
+   LINKS
+   ========================================= */
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-top: 5rem;
+}
+
+.button-design {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.8rem 1.6rem;
+  /* min-width: 140px; */
+  
+  /* Modernist Typography */
+  color: #c0c0c0; /* A soft, expensive silver/grey */
+  text-decoration: none;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 500;
+  font-family: 'Barlow', sans-serif;
+  /* font-family: 'Fira Code', monospace; */
+  
+  /* The Clean Glass Base */
+  background: rgba(10, 10, 10, 0.3); 
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  
+  /* A perfectly crisp, ultra-thin border. No chamfer. */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  /* Smooth, deliberate timing */
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.button-design svg {
+  width: 18px;
+  height: 18px;
+  /* fill: currentColor;  */
+  transition: all 0.3s ease;
+}
+
+/* This creates an invisible line at the bottom center of the button */
+.button-design::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; /* Sits perfectly over the bottom border */
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #FF5F15; /* Your accent color */
+  transform: translateX(-50%);
+  transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.button-design:hover {
+  color: #ffffff; /* Text snaps to pure white */
+  background: rgba(10, 10, 10, 0.7); /* Glass darkens to make the text pop */
+  border-color: rgba(255, 255, 255, 0.2); /* Outer border subtly brightens */
+  transform: translateY(-1px);
+  cursor: pointer;
+}
+
+/* The orange line smoothly draws outward from the center */
+.button-design:hover::after {
+  width: 100%;
+}

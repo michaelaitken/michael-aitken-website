@@ -60,7 +60,7 @@ body, html {
 
 
 /* --- LAYOUT WRAPPER --- */
-.page {
+main {
   position: relative;
   width: 100%;
   height: 100vh;
@@ -69,10 +69,8 @@ body, html {
   flex-direction: column;
 }
 
-
-
 /* --- CENTER LOCKUP --- */
-.center-lockup {
+.index_container {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -90,192 +88,45 @@ body, html {
   line-height: 2;
 }
 
-/* =========================================
-   TECH SPECS (Responsive Pipeline)
-   ========================================= */
 
-.tech-specs {
-  width: 100%;
-  padding: 0 1rem; /* Gives it breathing room on the edges */
-  margin-top: 1.5rem;
-}
 
-.spec-line {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  
-  /* Typography */
-  color: #a0a0a0; /* Expensive silver/grey */
-  font-family: 'Barlow', sans-serif;
-  font-size: 0.9rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.item {
-  display: flex;
-  align-items: center;
-  white-space: nowrap; /* Prevents phrases like "Critical Infrastructure" from splitting in half */
-}
-
-.item:hover {
-  color: #FF5F15;
-  cursor: default;
-}
-
-/* Auto-generates the pipe divider on desktop */
-.item:not(:last-child)::after {
-  content: "";
-  display: inline-block;
-  width: 1px;
-  height: 14px;
-  background-color: rgba(255, 255, 255, 0.15); /* A subtle, classy divider */
-  margin: 0 1rem; /* Spacing on either side of the pipe */
-}
-
-/* =========================================
-   MOBILE RESPONSIVENESS
-   ========================================= */
-
-/* When the screen gets smaller than an iPad */
 @media (max-width: 768px) {
-  .spec-line {
-    flex-direction: column; /* Stacks them vertically */
-    gap: 0.6rem; /* Space between stacked items */
+  /* Scale down the massive glitch text */
+  .hero-title_title {
+    font-size: clamp(2.5rem, 8vw, 4rem); 
   }
-  
-  /* Hides the pipes since they are now stacked */
-  .item:not(:last-child)::after {
-    display: none; 
+
+  /* Un-pin the location status so it doesn't overlap text */
+  .location-status_wrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    margin-top: 2rem;
+    width: 100%;
+  }
+
+  /* Reduce the moat of whitespace */
+  .index_tagline {
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
+
+  /* Bring buttons closer together */
+  .button-container {
+    gap: 1.5rem;
+    margin-top: 3rem;
   }
 }
 
-
-/* =========================================
-   HUD BUTTONS (The Executive "Classy" Vibe)
-   ========================================= */
-
-.button-container {
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-  flex-wrap: wrap;
-  margin-top: 5rem;
-}
-
-.button-design {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  padding: 0.8rem 1.6rem;
-  /* min-width: 140px; */
-  
-  /* Modernist Typography */
-  color: #c0c0c0; /* A soft, expensive silver/grey */
-  text-decoration: none;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-weight: 500;
-  font-family: 'Barlow', sans-serif;
-  /* font-family: 'Fira Code', monospace; */
-  
-  /* The Clean Glass Base */
-  background: rgba(10, 10, 10, 0.3); 
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  
-  /* A perfectly crisp, ultra-thin border. No chamfer. */
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  
-  /* Smooth, deliberate timing */
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.button-design svg {
-  width: 18px;
-  height: 18px;
-  /* fill: currentColor;  */
-  transition: all 0.3s ease;
-}
-
-/* =========================================
-   THE MICRO-INTERACTION (Expanding Underline)
-   ========================================= */
-
-/* This creates an invisible line at the bottom center of the button */
-.button-design::after {
-  content: '';
-  position: absolute;
-  bottom: -1px; /* Sits perfectly over the bottom border */
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: #FF5F15; /* Your accent color */
-  transform: translateX(-50%);
-  transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* =========================================
-   THE HOVER STATE
-   ========================================= */
-
-.button-design:hover {
-  color: #ffffff; /* Text snaps to pure white */
-  background: rgba(10, 10, 10, 0.7); /* Glass darkens to make the text pop */
-  border-color: rgba(255, 255, 255, 0.2); /* Outer border subtly brightens */
-  transform: translateY(-1px);
-  cursor: pointer;
-}
-
-/* The orange line smoothly draws outward from the center */
-.button-design:hover::after {
-  width: 100%;
-}
-
-
-.footer-glass {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 150px; /* Tall enough for a very smooth, gradual fade */
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 2rem;
-  
-  /* The Dark Fade */
-  background: linear-gradient(
-    to bottom, 
-    rgba(10, 10, 10, 0) 0%, 
-    rgba(10, 10, 10, 0.95) 100%
-  );
-  
-  /* The Glass Blur */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  
-  /* The Secret Weapon: Fades the blur itself so there is no harsh top edge */
-  mask-image: linear-gradient(to bottom, transparent 0%, black 60%);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 60%);
-  
-  /* Ensure it sits above the background but below modals/popups */
-  z-index: 10; 
-  pointer-events: none; /* Prevents the invisible top half from blocking clicks */
-}
-
-/* Typography for the Copyright */
-.footer-glass p {
-  color: #555555; /* A very subdued, muted grey */
-  font-family: 'Barlow', sans-serif;
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  margin: 0;
-  pointer-events: auto; /* Allows text selection if someone really wants to */
+@media (prefers-reduced-motion: reduce) {
+  .hero-title_title-seqment {
+    animation: none !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+  .hero-title_title-seqment:not(:first-child) {
+    display: none; /* Hide the duplicate layers entirely */
+  }
 }

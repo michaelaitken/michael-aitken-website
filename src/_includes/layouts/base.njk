@@ -11,6 +11,23 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/_assets/favicon-16x16.png">
   <link rel="manifest" href="/_assets/site.webmanifest">
 
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.michaelaitken.com/">
+  <meta property="og:title" content="Michael Aitken | OT Systems Engineer">
+  <meta property="og:description" content="Architecting, integrating, and securing complex industrial systems—from edge devices to the enterprise cloud in Austin, TX.">
+  <meta property="og:image" content="https://www.michaelaitken.com/_assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter / X -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.michaelaitken.com/">
+  <meta property="twitter:title" content="Michael Aitken | OT Systems Engineer">
+  <meta property="twitter:description" content="Architecting, integrating, and securing complex industrial systems—from edge devices to the enterprise cloud in Austin, TX.">
+  <meta property="twitter:image" content="https://www.michaelaitken.com/_assets/og-image.png">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,9 +42,7 @@
 </head>
 <body>
   {{ content | safe }}
-
-  {# Example component import for future development. #}
-  {# {% include "components/example.njk" %} #}
+  {% include "components/footer/footer.njk" %}
   
   <!-- Scripts -->
   <script src="/_js/main.js" type="module"></script>
